@@ -1,0 +1,7 @@
+{
+  "name": "AI Weather Forecaster",
+  "description": "An intelligent weather prediction application that uses AI to forecast weather based on your current location. It displays temperature, humidity, wind speed, and a general weather description.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
