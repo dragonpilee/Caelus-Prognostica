@@ -9,7 +9,7 @@
 
 ---
 
-Caelus Prognostica is an intelligent weather prediction application that leverages AI (via Google's Gemini API) to provide real-time, detailed weather forecasts based on your current geographical location. It features a dynamic, animated interface that changes based on the weather conditions and time of day.
+**Caelus Prognostica** is an intelligent weather prediction application that leverages AI (via Google's Gemini API) to provide real-time, detailed weather forecasts based on your current geographical location. It features a dynamic, animated interface that changes based on the weather conditions and time of day.
 
 ---
 
@@ -17,10 +17,10 @@ Caelus Prognostica is an intelligent weather prediction application that leverag
 
 ---
 
-## Features
+## ✨ Features
 
 - **Real-time Geolocation:** Automatically detects your current location to provide relevant forecasts.
-- **AI-Powered Predictions:** Uses Google's Gemini API for generating weather data.
+- **AI-Powered Predictions:** Uses Google's Gemini API (`gemini-2.5`).
 - **Detailed Weather Information:**
     - Temperature (current and "feels like")
     - Humidity
@@ -46,7 +46,7 @@ Caelus Prognostica is an intelligent weather prediction application that leverag
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Frontend:** React 19, TypeScript, Tailwind CSS
 - **AI Integration:** `@google/genai` (Gemini API)
@@ -56,7 +56,7 @@ Caelus Prognostica is an intelligent weather prediction application that leverag
 
 ---
 
-## Setup and Installation
+## 🚀 Setup and Installation
 
 1. **Clone the Repository (if applicable):**
     ```bash
@@ -65,14 +65,22 @@ Caelus Prognostica is an intelligent weather prediction application that leverag
     ```
 
 2. **API Key Configuration:**
-    - Obtain an API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
-    - Set this API key as an environment variable named `API_KEY`.  
-      For local development, you might use a `.env` file (if your dev server supports it) or set it directly in your terminal:
-      ```bash
-      export API_KEY="YOUR_GEMINI_API_KEY"
-      ```
-    - The application code in `services/geminiService.ts` uses `process.env.API_KEY`.  
-      **Do not hardcode your API key directly into the source code.**
+    - The app expects the API key as an environment variable named `API_KEY`.
+    - For local development (browser-only), you may temporarily hardcode your API key in `services/geminiService.ts` for testing:
+        ```typescript
+        // filepath: services/geminiService.ts
+        // ...existing code...
+        const getApiKey = (): string => {
+          // const apiKey = process.env.API_KEY; // Original
+          const apiKey = "YOUR_ACTUAL_API_KEY"; // Replace with your key for local testing
+          if (!apiKey) {
+            throw new Error("API_KEY environment variable not set or hardcoded key is missing.");
+          }
+          return apiKey;
+        };
+        // ...existing code...
+        ```
+    - **Remove your hardcoded API key before sharing or deploying the code.**
 
 3. **Install Dependencies (if using a local development server like Vite or Parcel):**
     ```bash
@@ -105,7 +113,7 @@ Caelus Prognostica is an intelligent weather prediction application that leverag
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 .
